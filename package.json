@@ -1,0 +1,15 @@
+{
+  "name": "wrio-dev",
+  "version": "1.0.0",
+  "description": "Start package for local development",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.8.0"
+  },
+  "scripts": {
+    "start": "hs -p 3000 & npm run watch",
+    "watch": "cd WRIO-InternetOS && npm i && npm run watch"
+  },
+  "author": "spirin.vladimir@gmail.com",
+  "license": "ISC"
+}
