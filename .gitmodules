@@ -1,15 +1,12 @@
-[submodule "Login-WRIO-App"]
-	path = Login-WRIO-App
-	url = git://github.com/webRunes/Login-WRIO-App.git
-[submodule "Titter-WRIO-App"]
-	path = Titter-WRIO-App
-	url = git://github.com/webRunes/Titter-WRIO-App.git
-[submodule "Plus-WRIO-App"]
-	path = Plus-WRIO-App
-	url = git://github.com/webRunes/Plus-WRIO-App.git
-[submodule "Default-WRIO-Theme"]
-	path = Default-WRIO-Theme
-	url = git://github.com/webRunes/Default-WRIO-Theme.git
 [submodule "WRIO-InternetOS"]
 	path = WRIO-InternetOS
-	url = git://github.com/webRunes/WRIO-InternetOS.git
+	url = https://github.com/webRunes/WRIO-InternetOS
+[submodule "Titter-WRIO-App"]
+	path = Titter-WRIO-App
+	url = https://github.com/webRunes/Titter-WRIO-App.git
+[submodule "Login-WRIO-App"]
+	path = Login-WRIO-App
+	url = https://github.com/webRunes/Login-WRIO-App.git
+[submodule "Plus-WRIO-App"]
+	path = Plus-WRIO-App
+	url = https://github.com/webRunes/Plus-WRIO-App.git
