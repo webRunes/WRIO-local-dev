@@ -10,3 +10,6 @@
 [submodule "Plus-WRIO-App"]
 	path = Plus-WRIO-App
 	url = https://github.com/webRunes/Plus-WRIO-App.git
+[submodule "Default-WRIO-Theme"]
+	path = Default-WRIO-Theme
+	url = https://github.com/webRunes/Default-WRIO-Theme.git
