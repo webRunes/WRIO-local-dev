@@ -11,7 +11,14 @@ RUN ln -s /usr/bin/nodejs /usr/bin/node
 COPY Titter-WRIO-App /srv/www/Titter-WRIO-App/
 COPY Login-WRIO-App /srv/www/Login-WRIO-App
 COPY WRIO-InternetOS /srv/www/WRIO-InternetOS
+COPY Default-WRIO-Theme /srv/www/Default-WRIO-Theme
+COPY Plus-WRIO-App /srv/www/Plus-WRIO-App
+COPY WRIO-InternetOS /srv/www/WRIO-InternetOS
 
+COPY index.html /srv/www/index.html
+COPY package.json /srv/www/package.json
+
+#setup apache reverse proxy and modules
 COPY apache.conf  /etc/apache2/sites-available/000-default.conf
 RUN ln -s /etc/apache2/mods-available/proxy.conf  /etc/apache2/mods-enabled/proxy.conf
 RUN ln -s /etc/apache2/mods-available/proxy.load  /etc/apache2/mods-enabled/proxy.load
@@ -23,7 +30,7 @@ RUN npm install -g gulp
 
 RUN cd /srv/www/Login-WRIO-App && npm install
 RUN cd /srv/www/Titter-WRIO-App && npm install
-RUN cd /srv/www/WRIO-InternetOS && npm install && npm i
+RUN cd /srv/www/ && npm install
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
