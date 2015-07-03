@@ -15,6 +15,11 @@ COPY Default-WRIO-Theme /srv/www/Default-WRIO-Theme
 COPY Plus-WRIO-App /srv/www/Plus-WRIO-App
 COPY WRIO-InternetOS /srv/www/WRIO-InternetOS
 
+RUN rm /srv/www/WRIO-InternetOS/node_modules || true
+RUN rm /srv/www/Titter-WRIO-App/node_modules || true
+RUN rm /srv/www/Login-WRIO-App/node_modules || true
+RUN rm /srv/www/WRIO-InternetOS/WRIO.js || true
+
 COPY index.html /srv/www/index.html
 COPY package.json /srv/www/package.json
 
@@ -30,7 +35,7 @@ RUN npm install -g gulp
 
 RUN cd /srv/www/Login-WRIO-App && npm install
 RUN cd /srv/www/Titter-WRIO-App && npm install
-RUN cd /srv/www/ && npm install
+RUN cd /srv/www/ && export DOCKERDEBUG=TRUE && npm install
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
