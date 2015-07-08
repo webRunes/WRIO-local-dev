@@ -62,6 +62,39 @@ RUN cd /srv/www/Titter-WRIO-App && npm install
 COPY Titter-WRIO-App /srv/www/Titter-WRIO-App/
 RUN rm /srv/www/Titter-WRIO-App/node_modules || true
 
+# Storage
+
+COPY Storage-WRIO-App/package.json /srv/www/Strorage-WRIO-APP/package.json
+RUN cd /srv/www/Storage-WRIO-App && npm install
+
+COPY Storage-WRIO-App /srv/www/Storage-WRIO-App/
+RUN rm /srv/www/Storage-WRIO-App/node_modules || true
+
+# webGold-WRIO-App
+
+COPY webGold-WRIO-App/package.json /srv/www/webGold-WRIO-App/package.json
+RUN cd /srv/www/webGold-WRIO-App && npm install
+
+COPY webGold-WRIO-App /srv/www/webGold-WRIO-App/
+RUN rm /srv/www/webGold-WRIO-App/node_modules || true
+
+# Core-WRIO-App
+
+COPY Core-WRIO-App/package.json /srv/www/Core-WRIO-App/package.json
+RUN cd /srv/www/Core-WRIO-App && npm install
+
+COPY webGold-WRIO-App /srv/www/Core-WRIO-App/
+RUN rm /srv/www/Core-WRIO-App/node_modules || true
+
+# Chess-WRIO-Game
+
+COPY Chess-WRIO-Game/package.json /srv/www/Chess-WRIO-Game/package.json
+RUN cd /srv/www/Chess-WRIO-Game && npm install
+
+COPY Chess-WRIO-Game /srv/www/Chess-WRIO-Game/
+RUN rm /srv/www/Chess-WRIO-Game/node_modules || true
+
+
 # server
 
 COPY package.json /srv/www/package.json
