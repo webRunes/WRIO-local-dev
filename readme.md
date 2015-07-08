@@ -53,11 +53,19 @@ Keys must be located in following manner:
 To build docker image
 ```
 docker build -t wrio_local_dev .
+
+or
+
+npm run dockerbuild
 ```
 
 To run container use
 ```
 docker run -p 5000-5005:5000-5005 -p 80:80 -t -i wrio_local_dev
+
+or
+
+npm run dockerrun
 ```
 
 Your services now will be accessible at http://wrioos.local http://titter.wrioos.local, http://titter.wrioos.local etc...
