@@ -67,7 +67,10 @@ ADD Titter-WRIO-App /srv/www/Titter-WRIO-App/
 ADD package.json /srv/www/package.json
 RUN cd /srv/www/ && npm install
 
-RUN cd /srv/www/WRIO-InternetOS && gulp && npm run bundleP && gulp clear
+RUN npm install browserify http-server gulp -g
+
+
+RUN cd /srv/www/WRIO-InternetOS && npm start
 
 EXPOSE 22 80 5000 5001 5002 5003 5004 5005
 CMD ["/usr/bin/supervisord"]
