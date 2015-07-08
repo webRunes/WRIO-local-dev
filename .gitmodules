@@ -13,6 +13,7 @@
 [submodule "Default-WRIO-Theme"]
 	path = Default-WRIO-Theme
 	url = https://github.com/webRunes/Default-WRIO-Theme.git
+
 [submodule "webGold-WRIO-App"]
 	path = webGold-WRIO-App
 	url = https://github.com/webRunes/webGold-WRIO-App.git

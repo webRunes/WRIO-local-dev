@@ -23,8 +23,8 @@ COPY index.html /srv/www/index.html
 
 
 #setup apache reverse proxy and modules
-COPY apache.conf  /etc/apache2/sites-available/000-default.conf
-COPY apache2.conf  /etc/apache2/apache2.conf
+COPY configs/apache.conf  /etc/apache2/sites-available/000-default.conf
+COPY configs/apache2.conf  /etc/apache2/apache2.conf
 RUN ln -s /etc/apache2/mods-available/proxy.conf  /etc/apache2/mods-enabled/proxy.conf
 RUN ln -s /etc/apache2/mods-available/proxy.load  /etc/apache2/mods-enabled/proxy.load
 RUN ln -s /etc/apache2/mods-available/proxy_html.load  /etc/apache2/mods-enabled/proxy_html.load
@@ -33,7 +33,7 @@ COPY keys /srv/www/keys/
 
 
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY configs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # WRIO-intenet-os
 
