@@ -37,40 +37,40 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # WRIO-intenet-os
 
-ADD WRIO-InternetOS/package.json /srv/www/WRIO-InternetOS/package.json
-RUN cd /srv/www/WRIO-InternetOS && npm install
+COPY WRIO-InternetOS/package.json /srv/www/WRIO-InternetOS/package.json
+RUN cd /srv/www/WRIO-InternetOS && npm install --unsafe-perm
 
-ADD WRIO-InternetOS /srv/www/WRIO-InternetOS
-#RUN rm /srv/www/WRIO-InternetOS/node_modules || true
+COPY WRIO-InternetOS /srv/www/WRIO-InternetOS
+RUN rm /srv/www/WRIO-InternetOS/node_modules || true
 RUN rm /srv/www/WRIO-InternetOS/WRIO.js || true
 
 
 
 # Login
 
-ADD Login-WRIO-App/package.json /srv/www/Login-WRIO-App/package.json
+COPY Login-WRIO-App/package.json /srv/www/Login-WRIO-App/package.json
 RUN cd /srv/www/Login-WRIO-App && npm install
 
-ADD Login-WRIO-App /srv/www/Login-WRIO-App
-#RUN rm /srv/www/Login-WRIO-App/node_modules || true
+COPY Login-WRIO-App /srv/www/Login-WRIO-App
+RUN rm /srv/www/Login-WRIO-App/node_modules || true
 
 # Titter
 
-ADD Titter-WRIO-App/package.json /srv/www/Titter-WRIO-App/package.json
+COPY Titter-WRIO-App/package.json /srv/www/Titter-WRIO-App/package.json
 RUN cd /srv/www/Titter-WRIO-App && npm install
 
-ADD Titter-WRIO-App /srv/www/Titter-WRIO-App/
-#RUN rm /srv/www/Titter-WRIO-App/node_modules || true
+COPY Titter-WRIO-App /srv/www/Titter-WRIO-App/
+RUN rm /srv/www/Titter-WRIO-App/node_modules || true
 
 # server
 
-ADD package.json /srv/www/package.json
+COPY package.json /srv/www/package.json
 RUN cd /srv/www/ && npm install
 
 RUN npm install browserify http-server gulp -g
 
-
-RUN cd /srv/www/WRIO-InternetOS && npm start
+RUN cd /srv/www/WRIO-InternetOS/node_modules && rm -fr passport-signin titter-wrio-app && ln -s /srv/www/Titter-WRIO-App titter-wrio-app && ln -s /srv/www/Login-WRIO-App passport-signin
+RUN cd /srv/www/WRIO-InternetOS && npm run bundleDOCKER
 
 EXPOSE 22 80 5000 5001 5002 5003 5004 5005
 CMD ["/usr/bin/supervisord"]
