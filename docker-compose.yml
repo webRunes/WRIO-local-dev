@@ -1,0 +1,50 @@
+apache:
+  build: ./apache/
+  ports:
+   - "80:80"
+  links:
+   - titter
+   - login
+   - storage
+   - wrio
+   - webgold
+   - chess
+
+wrio:
+  build: ./WRIO-InternetOS/
+  ports:
+   - "3000:3000"
+  #volumes:
+  # - ./Titter-WRIO-App/:/srv/www/
+
+titter:
+  build: ./Titter-WRIO-App/
+  ports:
+   - "5001:5001"
+  #volumes:
+  # - ./Titter-WRIO-App/:/srv/www/
+
+storage:
+  build: ./Storage-WRIO-App/
+  ports:
+   - "5002:5002"
+  #volumes:
+  # - ./Titter-WRIO-App/:/srv/www/
+
+webgold:
+  build: ./webGold-WRIO-App/
+  ports:
+   - "5003:5003"
+
+chess:
+  build: ./Chess-WRIO-Game/
+  ports:
+   - "5005:5005"
+
+login:
+  build: ./Login-WRIO-App/
+  ports:
+   - "5000:5000"
+  #volumes:
+  # - ./Titter-WRIO-App/:/srv/www/
+

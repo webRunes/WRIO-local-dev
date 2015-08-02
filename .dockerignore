@@ -1,3 +1,4 @@
-*/node_modules*
+*/node_modules/
 /WRIO-InternetOS/WRIO.js
-*.md
+/*.md
+*/.idea/
