@@ -50,23 +50,24 @@ Keys must be located in following manner:
         config.json
 ```
 
-To build docker image
+We are using docker-compose to run all WRIO services together on one machine, if you are using boot2docker you can use this command, to install docker-compose on your boot2docker virtual machine
+
 ```
-docker build -t wrio_local_dev .
+boot2docker ssh
+tce-load -wi python && curl https://bootstrap.pypa.io/get-pip.py | sudo python - && sudo pip install -U docker-compose
+```
+then you can enter your wrio-local-dev directory and use
 
-or
+```
+docker-compose build
+```
+to build all apps and
 
-npm run dockerbuild
+```
+docker-compose up
 ```
 
-To run container use
-```
-docker run -p 5000-5005:5000-5005 -p 80:80 -t -i wrio_local_dev
-
-or
-
-npm run dockerrun
-```
+to run them
 
 Your services now will be accessible at http://wrioos.local http://titter.wrioos.local, http://titter.wrioos.local etc...
 

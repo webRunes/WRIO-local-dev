@@ -13,3 +13,16 @@
 [submodule "Default-WRIO-Theme"]
 	path = Default-WRIO-Theme
 	url = https://github.com/webRunes/Default-WRIO-Theme.git
+
+[submodule "webGold-WRIO-App"]
+	path = webGold-WRIO-App
+	url = https://github.com/webRunes/webGold-WRIO-App.git
+[submodule "Chess-WRIO-Game"]
+	path = Chess-WRIO-Game
+	url = https://github.com/webRunes/Chess-WRIO-Game.git
+[submodule "Core-WRIO-App"]
+	path = Core-WRIO-App
+	url = https://github.com/webRunes/Core-WRIO-App.git
+[submodule "Storage-WRIO-App"]
+	path = Storage-WRIO-App
+	url = https://github.com/webRunes/Storage-WRIO-App.git
