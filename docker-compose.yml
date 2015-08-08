@@ -3,48 +3,71 @@ apache:
   ports:
    - "80:80"
   links:
+   - dev
    - titter
    - login
    - storage
-   - wrio
    - webgold
    - chess
 
-wrio:
-  build: ./WRIO-InternetOS/
+#dnsdock:
+#  image:
+#  - tonistiigi/dnsdock
+
+
+dev:
+  build: .
   ports:
-   - "3000:3000"
-  #volumes:
-  # - ./Titter-WRIO-App/:/srv/www/
+  - "3000:3000"
+  volumes:
+   - .:/srv/www/
+  links:
+   - "ambassador:apache"
 
 titter:
   build: ./Titter-WRIO-App/
   ports:
    - "5001:5001"
-  #volumes:
-  # - ./Titter-WRIO-App/:/srv/www/
+  volumes:
+   - ./Titter-WRIO-App/:/srv/www/
 
 storage:
   build: ./Storage-WRIO-App/
   ports:
    - "5002:5002"
-  #volumes:
-  # - ./Titter-WRIO-App/:/srv/www/
+  volumes:
+   - ./Storage-WRIO-App/:/srv/www/
 
 webgold:
   build: ./webGold-WRIO-App/
   ports:
    - "5003:5003"
+  volumes:
+   - ./webGold-WRIO-App/:/srv/www/
 
 chess:
   build: ./Chess-WRIO-Game/
   ports:
    - "5005:5005"
+  volumes:
+   - ./Chess-WRIO-Game/:/srv/www/
 
 login:
   build: ./Login-WRIO-App/
   ports:
    - "5000:5000"
-  #volumes:
-  # - ./Titter-WRIO-App/:/srv/www/
+  volumes:
+   - ./Login-WRIO-App/:/srv/www/
 
+core:
+  build: ./Core-WRIO-App/
+  ports:
+   - "5004:5004"
+  volumes:
+   - ./Core-WRIO-App/:/srv/www/
+
+ambassador:
+  image: cpuguy83/docker-grand-ambassador
+  volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock"
+  command: "-wait=true -name apache"

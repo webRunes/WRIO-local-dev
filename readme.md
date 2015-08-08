@@ -23,31 +23,22 @@ For example our boot2docker ip is 192.168.59.103 . Place this ip in hosts file:
 
 ```
 192.168.59.103 wrioos.local
+192.168.59.103 dev.wrioos.local
+192.168.59.103 webgold.wrioos.local
 192.168.59.103 titter.wrioos.local
 192.168.59.103 login.wrioos.local
 192.168.59.103 chess.wrioos.local
 192.168.59.103 storage.wrioos.local
 ```
 
-Then you need to extract your keys.zip file to keys subdirectory in this folder. Keys will contain config.json for each application.
-Keys must be located in following manner:
+You must place corresponding config.json inside each of this folder to run development environment successfully
+
 ```
-\KEYS
-│
-├───chess
-│       config.json
-│
-├───core
-│       config.json
-│
-├───login
-│       config.json
-│
-├───storage
-│       config.json
-│
-└───titter
-        config.json
+Titter-WRIO-App
+Login-WRIO-App
+webGold-WRIO-App
+Storage-WRIO-App
+Chess-WRIO-Game
 ```
 
 We are using docker-compose to run all WRIO services together on one machine, if you are using boot2docker you can use this command, to install docker-compose on your boot2docker virtual machine
@@ -56,9 +47,10 @@ We are using docker-compose to run all WRIO services together on one machine, if
 boot2docker ssh
 tce-load -wi python && curl https://bootstrap.pypa.io/get-pip.py | sudo python - && sudo pip install -U docker-compose
 ```
-then you can enter your wrio-local-dev directory and use
+then you can cd your wrio-local-dev directory inside boot2docker shell and use
 
 ```
+cd /Users/username/WRIO-local-dev/
 docker-compose build
 ```
 to build all apps and
@@ -66,7 +58,6 @@ to build all apps and
 ```
 docker-compose up
 ```
-
 to run them
 
 Your services now will be accessible at http://wrioos.local http://titter.wrioos.local, http://titter.wrioos.local etc...
