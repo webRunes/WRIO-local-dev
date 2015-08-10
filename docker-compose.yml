@@ -1,3 +1,5 @@
+
+
 apache:
   build: ./apache/
   ports:
@@ -9,10 +11,20 @@ apache:
    - storage
    - webgold
    - chess
+   - core
 
-#dnsdock:
-#  image:
-#  - tonistiigi/dnsdock
+#ambassador:
+#  image: cpuguy83/docker-grand-ambassador
+#  volumes:
+#    - "/var/run/docker.sock:/var/run/docker.sock"
+#  command: "-wait=true -name apache"
+
+dnsdock:
+    image: tonistiigi/dnsdock
+    volumes:
+        - /var/run/docker.sock:/run/docker.sock
+    ports:
+        - 172.17.42.1:53:53/udp
 
 
 dev:
@@ -21,8 +33,17 @@ dev:
   - "3000:3000"
   volumes:
    - .:/srv/www/
-  links:
-   - "ambassador:apache"
+  extra_hosts:
+     - "titter.wrioos.local:192.168.59.103"
+     - "login.wrioos.local:192.168.59.103"
+
+login:
+  build: ./Login-WRIO-App/
+  ports:
+   - "5000:5000"
+  volumes:
+   - ./Login-WRIO-App/:/srv/www/
+  dns: 172.17.42.1
 
 titter:
   build: ./Titter-WRIO-App/
@@ -30,6 +51,10 @@ titter:
    - "5001:5001"
   volumes:
    - ./Titter-WRIO-App/:/srv/www/
+  extra_hosts:
+    - "titter.wrioos.local:192.168.59.103"
+    - "login.wrioos.local:192.168.59.103"
+  dns: 172.17.42.1
 
 storage:
   build: ./Storage-WRIO-App/
@@ -37,6 +62,9 @@ storage:
    - "5002:5002"
   volumes:
    - ./Storage-WRIO-App/:/srv/www/
+  extra_hosts:
+    - "titter.wrioos.local:192.168.59.103"
+    - "login.wrioos.local:192.168.59.103"
 
 webgold:
   build: ./webGold-WRIO-App/
@@ -52,13 +80,6 @@ chess:
   volumes:
    - ./Chess-WRIO-Game/:/srv/www/
 
-login:
-  build: ./Login-WRIO-App/
-  ports:
-   - "5000:5000"
-  volumes:
-   - ./Login-WRIO-App/:/srv/www/
-
 core:
   build: ./Core-WRIO-App/
   ports:
@@ -66,8 +87,3 @@ core:
   volumes:
    - ./Core-WRIO-App/:/srv/www/
 
-ambassador:
-  image: cpuguy83/docker-grand-ambassador
-  volumes:
-    - "/var/run/docker.sock:/var/run/docker.sock"
-  command: "-wait=true -name apache"
