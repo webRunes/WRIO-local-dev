@@ -26,4 +26,5 @@ EXPOSE 3000
 WORKDIR /srv/www/
 CMD rm -fR /srv/www/node_modules && rm -fR /srv/www/WRIO-InternetOS/node_modules && \
     hs -p 3000 & \
+    sleep 2 && \
     cd WRIO-InternetOS && npm run watchDOCKER
