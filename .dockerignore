@@ -1,4 +1,6 @@
-*/node_modules/
-/WRIO-InternetOS/WRIO.js
+node_modules/
+.git*
+*/.git/*
+*/node_modules*
 /*.md
 */.idea/
