@@ -2,12 +2,15 @@
   "name": "wrio-dev",
   "version": "1.0.0",
   "description": "Start package for local development",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-webserver": "^0.9.1"
+  },
   "devDependencies": {
+    "gulp": "^3.9.0",
     "http-server": "^0.8.0"
   },
   "scripts": {
-    "start": "hs -p 3000 & npm run watch",
+    "start": "gulp webserver",
     "watch": "cd WRIO-InternetOS && npm i && npm run watch"
   },
   "author": "spirin.vladimir@gmail.com",
