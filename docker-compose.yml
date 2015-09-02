@@ -19,12 +19,12 @@ apache:
 #    - "/var/run/docker.sock:/var/run/docker.sock"
 #  command: "-wait=true -name apache"
 
-dnsdock:
-    image: tonistiigi/dnsdock
-    volumes:
-        - /var/run/docker.sock:/run/docker.sock
-    ports:
-        - 172.17.42.1:53:53/udp
+#dnsdock:
+ #   image: tonistiigi/dnsdock
+ #   volumes:
+ #       - /var/run/docker.sock:/run/docker.sock
+ #   ports:
+ #       - 172.17.42.1:53:53/udp
 
 
 dev:
@@ -43,7 +43,7 @@ login:
    - "5000:5000"
   volumes:
    - ./Login-WRIO-App/:/srv/www/
-  dns: 172.17.42.1
+
 
 titter:
   build: ./Titter-WRIO-App/
@@ -54,7 +54,6 @@ titter:
   extra_hosts:
     - "titter.wrioos.local:192.168.59.103"
     - "login.wrioos.local:192.168.59.103"
-  dns: 172.17.42.1
 
 storage:
   build: ./Storage-WRIO-App/
