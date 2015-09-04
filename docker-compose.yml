@@ -78,6 +78,8 @@ chess:
    - "5005:5005"
   volumes:
    - ./Chess-WRIO-Game/:/srv/www/
+  links:
+    - titter
 
 core:
   build: ./Core-WRIO-App/
