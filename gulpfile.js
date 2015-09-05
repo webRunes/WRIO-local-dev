@@ -1,9 +1,23 @@
 var gulp = require('gulp');
 var webserver = require('gulp-webserver');
-var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
 
 gulp.task('webserver', function() {
-    exec('npm run watch');
+    if (process.platform === 'win32') {
+        sh = 'cmd';
+        shFlag = '/c';
+    } else {
+        sh = 'sh';
+        shFlag = '-c';
+    }
+    cmd = 'bash -c "cd WRIO-InternetOS && gulp && gulp watchDev --dev"';
+    var child = spawn(sh,[shFlag,cmd], {
+        cwd: process.cwd,
+        env: process.env,
+        stdio: ['pipe', process.stdout, process.stderr]
+    });
+
+
     gulp.src('.')
         .pipe(webserver({
             livereload: true,
