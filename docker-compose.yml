@@ -10,8 +10,9 @@ apache:
    - storage
    - webgold
    - dev
+   - core
+
 #   - chess
-#   - core
 
 #ambassador:
 #  image: cpuguy83/docker-grand-ambassador
@@ -43,6 +44,10 @@ login:
    - "5000:5000"
   volumes:
    - ./Login-WRIO-App/:/srv/www/
+  extra_hosts:
+   - "titter.wrioos.local:192.168.99.100"
+   - "storage.wrioos.local:192.168.99.100"
+   - "webgold.wrioos.local:192.168.99.100"
 
 
 titter:
@@ -73,19 +78,19 @@ webgold:
   volumes:
    - ./webGold-WRIO-App/:/srv/www/
 
-#chess:
-#  build: ./Chess-WRIO-Game/
-#  ports:
-#   - "5005:5005"
-#  volumes:
-#   - ./Chess-WRIO-Game/:/srv/www/
-#  links:
-#    - titter
+chess:
+  build: ./Chess-WRIO-Game/
+  ports:
+   - "5005:5005"
+  volumes:
+   - ./Chess-WRIO-Game/:/srv/www/
+  links:
+    - titter
 
-#core:
-#  build: ./Core-WRIO-App/
-#  ports:
-#   - "5004:5004"
-#  volumes:
-#   - ./Core-WRIO-App/:/srv/www/
+core:
+  build: ./Core-WRIO-App/
+  ports:
+   - "5004:5004"
+  volumes:
+   - ./Core-WRIO-App/:/srv/www/
 
