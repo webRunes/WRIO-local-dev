@@ -15,4 +15,4 @@ RUN ln -s /etc/apache2/mods-available/proxy.load  /etc/apache2/mods-enabled/prox
 RUN ln -s /etc/apache2/mods-available/proxy_html.load  /etc/apache2/mods-enabled/proxy_html.load
 RUN ln -s /etc/apache2/mods-available/proxy_http.load  /etc/apache2/mods-enabled/proxy_http.load
 
-CMD bash /run-apache.sh
+CMD bash /run-apache.sh || true
