@@ -1,6 +1,6 @@
-FROM ubuntu:15.04
+FROM michbil/wrio:latest
 MAINTAINER denso.ffff@gmail.com
-RUN apt-get update && apt-get install -y apache2
+RUN apt-get install -y apache2
 
 RUN mkdir -p /var/lock/apache2 /var/run/apache2 /var/run/sshd /var/log/supervisor
 RUN mkdir -p /srv/www
