@@ -13,3 +13,4 @@ cd WRIO-InternetOS && rm -fR node_modules
 cd ..
 cd webGold-WRIO-App && rm -fR node_modules
 cd ..
+cd Plus-WRIO-App && rm -fR node_modules

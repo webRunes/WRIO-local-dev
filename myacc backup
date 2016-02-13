@@ -1,0 +1,10 @@
+{
+  "_id": ObjectId("5606e26c9490401400e8c1ed"),
+  "titterID": "186910661",
+  "lastName": "Michael Bilenko",
+  "wrioID": "152330211782",
+  "ethereumWallet": "0xd30ea832527c552c7acae386c1e611b5c5d5382f",
+  "token": "186910661-5IIMKDRP8gMX9cIhRFUvj5d3KcsH01PZp2B5WRJO",
+  "tokenSecret": "p06sHpzdaKwSdv3axXmkdmKczuCKDgMqP1jYsQRRdBIvn",
+  "temporary": false
+}

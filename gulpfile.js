@@ -10,7 +10,7 @@ gulp.task('webserver', function() {
         sh = 'sh';
         shFlag = '-c';
     }
-    cmd = "cd WRIO-InternetOS && gulp && gulp watchDev --dev";
+    cmd = "cd WRIO-InternetOS && gulp watchDev --dev";
     var child = spawn(sh,[shFlag,cmd], {
         cwd: process.cwd,
         env: process.env,
