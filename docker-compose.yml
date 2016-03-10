@@ -10,7 +10,7 @@ apache:
    - storage
    - webgold
    - dev
-#   - core
+   - core
 
 #   - chess
 
@@ -35,8 +35,8 @@ dev:
   volumes:
    - .:/srv/www/
   extra_hosts:
-     - "titter.wrioos.local:192.168.59.103"
-     - "login.wrioos.local:192.168.59.103"
+     - "titter.wrioos.local:10.211.55.3"
+     - "login.wrioos.local:10.211.55.3"
 
 login:
   build: ./Login-WRIO-App/
@@ -45,9 +45,9 @@ login:
   volumes:
    - ./Login-WRIO-App/:/srv/www/
   extra_hosts:
-   - "titter.wrioos.local:192.168.99.100"
-   - "storage.wrioos.local:192.168.99.100"
-   - "webgold.wrioos.local:192.168.99.100"
+   - "titter.wrioos.local:10.211.55.3"
+   - "storage.wrioos.local:10.211.55.3"
+   - "webgold.wrioos.local:10.211.55.3"
 
 
 titter:
@@ -57,9 +57,9 @@ titter:
   volumes:
    - ./Titter-WRIO-App/:/srv/www/
   extra_hosts:
-    - "titter.wrioos.local:192.168.99.100"
-    - "login.wrioos.local:192.168.99.100"
-    - "webgold.wrioos.local:192.168.99.100"
+    - "titter.wrioos.local:10.211.55.3"
+    - "login.wrioos.local:10.211.55.3"
+    - "webgold.wrioos.local:10.211.55.3"
 
 storage:
   build: ./Storage-WRIO-App/
@@ -68,8 +68,8 @@ storage:
   volumes:
    - ./Storage-WRIO-App/:/srv/www/
   extra_hosts:
-    - "titter.wrioos.local:192.168.59.103"
-    - "login.wrioos.local:192.168.59.103"
+    - "titter.wrioos.local:10.211.55.3"
+    - "login.wrioos.local:10.211.55.3"
 
 webgold:
   build: ./webGold-WRIO-App/
@@ -87,10 +87,10 @@ webgold:
 #  links:
 #    - titter
 
-#core:
-#  build: ./Core-WRIO-App/
-#  ports:
-#   - "5004:5004"
-#  volumes:
-#   - ./Core-WRIO-App/:/srv/www/
+core:
+  build: ./Core-WRIO-App/
+  ports:
+   - "5004:5004"
+  volumes:
+   - ./Core-WRIO-App/:/srv/www/
 
