@@ -62,4 +62,4 @@ to run them
 
 Your services now will be accessible at http://wrioos.local http://titter.wrioos.local, http://titter.wrioos.local etc...
 
-Powered by [Open Copyright](http://opencopyright.webrunes.com)
+Powered by [Open Copyright](https://opencopyright.wrioos.com)
