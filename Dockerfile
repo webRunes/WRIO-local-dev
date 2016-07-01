@@ -11,11 +11,8 @@ RUN cd $(npm root -g)/npm \
 copy WRIO-InternetOS/package.json /srv/package.json
 RUN cd /srv/ && npm install --unsafe-perm
 
-WORKDIR /srv/
+RUN npm install -g webpack-dev-server webpack
 
 EXPOSE 3000
 WORKDIR /srv/www/
-CMD rm -fR /srv/www/node_modules && rm -fR /srv/www/WRIO-InternetOS/node_modules && \
-    hs -p 3000 & \
-    sleep 2 && \
-    cd WRIO-InternetOS && npm run watchDOCKER
+CMD cd WRIO-InternetOS && export DOCKER_DEV=TRUE && webpack-dev-server
