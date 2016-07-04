@@ -1,24 +1,18 @@
 FROM michbil/wrio:latest
 MAINTAINER denso.ffff@gmail.com
 
+# quick fix for docker and npm3 compatibility
+
+RUN cd $(npm root -g)/npm \
+ && npm install fs-extra \
+ && sed -i -e s/graceful-fs/fs-extra/ -e s/fs\.rename/fs.move/ ./lib/utils/rename.js
+
+
 copy WRIO-InternetOS/package.json /srv/package.json
 RUN cd /srv/ && npm install --unsafe-perm
 
-RUN npm install watchify -g
-
-WORKDIR /srv/
-
-COPY Login-WRIO-App/package.json /srv/package.json
-RUN npm install --production
-
-COPY Titter-WRIO-App/package.json /srv/package.json
-RUN npm install --production
-
-RUN cd /srv/node_modules/ && rm -fr passport-signin titter-wrio-app && ln -s /srv/www/Titter-WRIO-App titter-wrio-app && ln -s /srv/www/Login-WRIO-App passport-signin
+RUN npm install -g webpack-dev-server webpack
 
 EXPOSE 3000
 WORKDIR /srv/www/
-CMD rm -fR /srv/www/node_modules && rm -fR /srv/www/WRIO-InternetOS/node_modules && \
-    hs -p 3000 & \
-    sleep 2 && \
-    cd WRIO-InternetOS && npm run watchDOCKER
+CMD cd WRIO-InternetOS && export DOCKER_DEV=TRUE && webpack-dev-server

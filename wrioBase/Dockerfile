@@ -6,4 +6,5 @@ RUN apt-get update && apt-get install -y nodejs mc libcairo2-dev libjpeg8-dev li
 RUN npm install -g http-server browserify gulp nodemon mocha
 RUN mkdir -p /srv/www
 RUN npm install -g babel@5.6.14
+RUN npm install -g npm@3
 
