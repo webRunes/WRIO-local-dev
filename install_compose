@@ -1,3 +1,0 @@
-#!/bin/sh
-
-tce-load -wi python && curl https://bootstrap.pypa.io/get-pip.py | sudo python - && sudo pip install -U docker-compose
