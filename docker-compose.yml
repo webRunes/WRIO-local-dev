@@ -52,6 +52,7 @@ storage:
    - "5002:5002"
   volumes:
    - ./Storage-WRIO-App/:/srv/www/
+   - ./hub/:/hub
   extra_hosts:
     - "titter.wrioos.local:10.211.55.3"
     - "login.wrioos.local:10.211.55.3"

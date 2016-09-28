@@ -12,6 +12,7 @@ COPY run-apache.sh /
 RUN a2enmod rewrite
 RUN ln -s /etc/apache2/mods-available/proxy.conf  /etc/apache2/mods-enabled/proxy.conf
 RUN ln -s /etc/apache2/mods-available/proxy.load  /etc/apache2/mods-enabled/proxy.load
+RUN ln -s /etc/apache2/mods-available/headers.load  /etc/apache2/mods-enabled/headers.load
 RUN ln -s /etc/apache2/mods-available/proxy_html.load  /etc/apache2/mods-enabled/proxy_html.load
 RUN ln -s /etc/apache2/mods-available/proxy_http.load  /etc/apache2/mods-enabled/proxy_http.load
 
