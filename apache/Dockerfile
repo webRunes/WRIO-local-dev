@@ -9,11 +9,7 @@ RUN mkdir -p /srv/www
 COPY apache.conf  /etc/apache2/sites-available/000-default.conf
 COPY apache2.conf  /etc/apache2/apache2.conf
 COPY run-apache.sh /
-RUN a2enmod rewrite
-RUN ln -s /etc/apache2/mods-available/proxy.conf  /etc/apache2/mods-enabled/proxy.conf
-RUN ln -s /etc/apache2/mods-available/proxy.load  /etc/apache2/mods-enabled/proxy.load
-RUN ln -s /etc/apache2/mods-available/headers.load  /etc/apache2/mods-enabled/headers.load
-RUN ln -s /etc/apache2/mods-available/proxy_html.load  /etc/apache2/mods-enabled/proxy_html.load
-RUN ln -s /etc/apache2/mods-available/proxy_http.load  /etc/apache2/mods-enabled/proxy_http.load
+RUN a2enmod xml2enc
+RUN a2enmod rewrite headers proxy_http  proxy_html
 
 CMD bash /run-apache.sh || true
