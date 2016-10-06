@@ -10,6 +10,6 @@ COPY apache.conf  /etc/apache2/sites-available/000-default.conf
 COPY apache2.conf  /etc/apache2/apache2.conf
 COPY run-apache.sh /
 RUN a2enmod xml2enc
-RUN a2enmod rewrite headers proxy_http  proxy_html
+RUN a2enmod rewrite headers proxy_http  proxy_html proxy_wstunnel
 
 CMD bash /run-apache.sh || true
