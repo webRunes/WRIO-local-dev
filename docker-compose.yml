@@ -12,6 +12,10 @@ apache:
    - dev
    - core
 
+mongo:
+  image: mongo:latest
+  ports:
+  - "27017:27017"
 
 dev:
   build: .
@@ -59,6 +63,9 @@ storage:
 
 webgold:
   build: ./webGold-WRIO-App/
+  links:
+   - mongo
+   - testrpc
   ports:
    - "5003:5003"
   volumes:
@@ -80,3 +87,8 @@ core:
   volumes:
    - ./Core-WRIO-App/:/srv/www/
 
+testrpc:
+  build: ./webGold-WRIO-App
+  ports:
+  - "8545:8545"
+  command: bash -c "testrpc -b 5 --secure -g 60000"
