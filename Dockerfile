@@ -11,4 +11,4 @@ RUN cd /srv/ && yarn
 EXPOSE 3000
 RUN cd /srv/www && pwd && ls
 WORKDIR /srv/www/WRIO-InternetOS
-CMD export DOCKER_DEV=TRUE && webpack-dev-server
+CMD export DOCKER_DEV=TRUE && webpack-dev-server --public wrioos.local
