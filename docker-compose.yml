@@ -62,26 +62,28 @@ storage:
   extra_hosts:
     - "titter.wrioos.local:10.211.55.3"
     - "login.wrioos.local:10.211.55.3"
+  #command: sh -c "cd /srv/www && node server.js"  # DEVMODE off, comment this to activate dev mode
 
 webgold:
   build: ./webGold-WRIO-App/
   links:
    - mongo
-   - testrpc
+#   - testrpc
    - rabbitmq
   ports:
    - "5003:5003"
   volumes:
    - ./webGold-WRIO-App/:/srv/www/
+  command: sh -c "cd /srv/www && node server.js" # DEVMODE off,comment this to activate dev mode
 
-chess:
-  build: ./Chess-WRIO-Game/
-  ports:
-   - "5005:5005"
-  volumes:
-   - ./Chess-WRIO-Game/:/srv/www/
-  links:
-    - titter
+#chess:
+#  build: ./Chess-WRIO-Game/
+#  ports:
+#   - "5005:5005"
+#  volumes:
+#   - ./Chess-WRIO-Game/:/srv/www/
+#  links:
+#    - titter
 
 core:
   build: ./Core-WRIO-App/
@@ -89,13 +91,12 @@ core:
    - "5004:5004"
   volumes:
    - ./Core-WRIO-App/:/srv/www/
-
-testrpc:
-  build: ./webGold-WRIO-App
-  ports:
-  - "8545:8545"
-#  command: bash -c "testrpc -b 5 --secure -g 60000"
-  command: sh -c "testrpc --debug -b 0.5 --secure --unlock 0x64b1ca6c22567bdbae74cab3a694d48c7a6b4789 --account=\"0x4749870d2632ff65dccdd61073e69a2e9f32c757e10efbf584cfe93c1d139f1c,1000000000\" --account=\"0x51389cd120c059bbfd003e325550eace06c1515cbc6c8c7f8735728a54edfdc4,0\" --account=\"0x1fb9710adb5b43df3f378e4007fdbdadd54f76dc162a1b59d368c7d66b926685,0\""
+  command: sh -c "cd /srv/www && node server.js" # DEVMODE off,comment this to activate dev mode
+#testrpc:
+#  build: ./webGold-WRIO-App
+#  ports:
+#  - "8545:8545"
+#  command: sh -c "testrpc --debug -b 0.5 --secure --unlock 0x64b1ca6c22567bdbae74cab3a694d48c7a6b4789 --account=\"0x4749870d2632ff65dccdd61073e69a2e9f32c757e10efbf584cfe93c1d139f1c,1000000000\" --account=\"0x51389cd120c059bbfd003e325550eace06c1515cbc6c8c7f8735728a54edfdc4,0\" --account=\"0x1fb9710adb5b43df3f378e4007fdbdadd54f76dc162a1b59d368c7d66b926685,0\""
 
 rabbitmq:
   image: "rabbitmq"
