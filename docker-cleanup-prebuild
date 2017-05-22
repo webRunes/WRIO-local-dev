@@ -1,0 +1,16 @@
+rm -fR node_modules
+cd Chess-WRIO-Game && rm -fR node_modules
+cd ..
+cd Core-WRIO-App && rm  -fR node_modules
+cd ..
+cd Login-WRIO-App && rm -fR node_modules
+cd ..
+cd Storage-WRIO-App && rm -fR node_modules
+cd ..
+cd Titter-WRIO-App && rm -fR node_modules
+cd ..
+cd WRIO-InternetOS && rm -fR node_modules
+cd ..
+cd webGold-WRIO-App && rm -fR node_modules
+cd ..
+cd Plus-WRIO-App && rm -fR node_modules
