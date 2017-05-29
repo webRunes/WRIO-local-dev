@@ -7,7 +7,7 @@ Please refer wiki for local development instructions
 Note: replace "webRunes" in the URLs below to your github name, if you're going to
 work on this fork.
 
-If you're going to work on front-end only, first two will be enough
+If you're going to work on front-end only this will be enough
 ```
 git clone https://github.com/webRunes/WRIO-local-dev
 cd WRIO-local-dev
