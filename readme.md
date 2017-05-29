@@ -56,6 +56,5 @@ Start
 http://localhost/
 ```
 
-Port 80 must be available. In case it's not:
+Port 80 must be available. In case it's not you may need to stop "Web Deployment Agent Service" at "View local services":
 [http://www.ferolen.com/blog/microsoft-httpapi2-0-use-port-80-cannot-start-wamp-apache/](http://www.ferolen.com/blog/microsoft-httpapi2-0-use-port-80-cannot-start-wamp-apache/)
-
