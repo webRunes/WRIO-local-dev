@@ -38,10 +38,20 @@ cd WRIO-InternetOS
 yarn
 npm run devserver
 ```
+Please add following entries to your hosts file
+```
+127.0.0.1 webgold_d.wrioos.com
+127.0.0.1 core_d.wrioos.com
+127.0.0.1 titter_d.wrioos.com
+```
+
 Now each time you start frontend server, run
 ```
 cd WRIO-InternetOS
 npm run devserver
 ```
-note: use ```sudo npm run devserver``` on unix systems
+note: use ```sudo npm run devserver``` on unix systems, on Windows systems run this command from the Administrator user.
+
+Port 80 must be available. In case it's not:
+[http://www.ferolen.com/blog/microsoft-httpapi2-0-use-port-80-cannot-start-wamp-apache/](http://www.ferolen.com/blog/microsoft-httpapi2-0-use-port-80-cannot-start-wamp-apache/)
 
