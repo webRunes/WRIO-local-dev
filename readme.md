@@ -5,9 +5,8 @@ Please refer wiki for local development instructions
 
 # Clone your repositories there
 
-Note: replace "webRunes" in the URLs below to your github name, if you're going to
-work on this fork.
 Note for Windows users: [Python](https://www.python.org/downloads/release/python-2713/) must be installed. Please make sure, python is included in system path.
+Note: Fork and replace "webRunes" in the URLs below with your github name.
 
 If you're going to work on front-end only this will be enough
 ```
