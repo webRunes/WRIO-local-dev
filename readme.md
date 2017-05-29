@@ -52,6 +52,11 @@ npm run devserver
 ```
 note: use ```sudo npm run devserver``` on unix systems, on Windows systems run this command from the Administrator user.
 
+Start
+```
+http://localhost/
+```
+
 Port 80 must be available. In case it's not:
 [http://www.ferolen.com/blog/microsoft-httpapi2-0-use-port-80-cannot-start-wamp-apache/](http://www.ferolen.com/blog/microsoft-httpapi2-0-use-port-80-cannot-start-wamp-apache/)
 
