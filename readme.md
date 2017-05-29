@@ -4,7 +4,7 @@ Please refer wiki for local development instructions
 
 # Clone your repositories there
 
-Note: replace word webRunes to your github name, if you're going to
+Note: replace "webRunes" in the URLs below to your github name, if you're going to
 work on this fork.
 
 If you're going to work on front-end only, first two will be enough
@@ -16,7 +16,7 @@ git clone https://github.com/webRunes/WRIO-InternetOS
 git clone https://github.com/webRunes/Default-WRIO-Theme
 ```
 
-If you're going to work on back-end too, clone backend repos too
+If you're going to work on back-end too, clone backend repos as well
 
 ```
 git clone https://github.com/webRunes/Core-WRIO-App
@@ -36,7 +36,7 @@ cd WRIO-InternetOS
 yarn
 npm run devserver
 ```
-Now each time to start frontend server, please run
+Now each time you start frontend server, run
 ```
 cd WRIO-InternetOS
 npm run devserver
