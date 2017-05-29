@@ -1,6 +1,6 @@
 #WRIO local development package
 
-Please refer [wiki](https://github.com/webRunes/WRIO-InternetOS/wiki/Local-Development-with-the-Help-of-Docker) for local development instructions
+Please refer wiki for local development instructions
 
 # Clone your repositories there
 
@@ -9,6 +9,9 @@ work on this fork.
 
 If you're going to work on front-end only, first two will be enough
 ```
+git clone https://github.com/webRunes/WRIO-local-dev
+cd WRIO-local-dev
+
 git clone https://github.com/webRunes/WRIO-InternetOS
 git clone https://github.com/webRunes/Default-WRIO-Theme
 ```
@@ -38,6 +41,7 @@ Now each time to start frontend server, please run
 cd WRIO-InternetOS
 npm run devserver
 ```
+note: use ```sudo npm run devserver``` on unix systems
 
 [Local development of WRIO-InternetOS front end](https://github.com/webRunes/WRIO-InternetOS/wiki/Deploy-on-localhost)  
-[How to setup development process on local machine](https://github.com/webRunes/WRIO-local-dev)  
+[How to setup development process on local machine] (https://github.com/webRunes/WRIO-local-dev)  
