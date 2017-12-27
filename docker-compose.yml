@@ -4,7 +4,7 @@ nginx:
    - "80:80"
    - "443:443"
   links:
-   - titter
+   - pinger
    - login
    - storage
    - webgold
@@ -22,21 +22,21 @@ login:
   volumes:
    - ./Login-WRIO-App/:/srv/www/
   extra_hosts:
-   - "titter.wrioos.local:10.211.55.3"
+   - "pinger.wrioos.local:10.211.55.3"
    - "storage.wrioos.local:10.211.55.3"
    - "webgold.wrioos.local:10.211.55.3"
 
 
-titter:
-  build: ./Titter-WRIO-App/
+pinger:
+  build: ./Pinger-WRIO-App/
   ports:
    - "5001:5001"
   volumes:
-   - ./Titter-WRIO-App/:/srv/www/
+   - ./Pinger-WRIO-App/:/srv/www/
   links:
    - rabbitmq
   extra_hosts:
-    - "titter.wrioos.local:10.211.55.3"
+    - "pinger.wrioos.local:10.211.55.3"
     - "login.wrioos.local:10.211.55.3"
     - "webgold.wrioos.local:10.211.55.3"
 
@@ -48,7 +48,7 @@ storage:
    - ./Storage-WRIO-App/:/srv/www/
    - ./hub/:/hub
   extra_hosts:
-    - "titter.wrioos.local:10.211.55.3"
+    - "pinger.wrioos.local:10.211.55.3"
     - "login.wrioos.local:10.211.55.3"
   #command: sh -c "cd /srv/www && node server.js"  # DEVMODE off, comment this to activate dev mode
 
@@ -56,7 +56,6 @@ webgold:
   build: ./webGold-WRIO-App/
   links:
    - mongo
-#   - testrpc
    - rabbitmq
   ports:
    - "5003:5003"
@@ -71,10 +70,16 @@ webgold:
 #  volumes:
 #   - ./Chess-WRIO-Game/:/srv/www/
 #  links:
-#    - titter
+#    - pinger
 
 rabbitmq:
   image: "rabbitmq"
   ports:
     - "15672:15672"
     - "5672:5672"
+
+#testrpc:
+#  image: harshjv/testrpc
+#  ports:
+#  - "8545:8545"
+#  command: --debug --blocktime 1 --secure --unlock 0x64b1ca6c22567bdbae74cab3a694d48c7a6b4789 --account="0x4749870d2632ff65dccdd61073e69a2e9f32c757e10efbf584cfe93c1d139f1c,1000000000" --account="0x51389cd120c059bbfd003e325550eace06c1515cbc6c8c7f8735728a54edfdc4,0" --account="0x1fb9710adb5b43df3f378e4007fdbdadd54f76dc162a1b59d368c7d66b926685,0"
