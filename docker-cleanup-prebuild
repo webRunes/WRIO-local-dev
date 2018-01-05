@@ -7,7 +7,7 @@ cd Login-WRIO-App && rm -fR node_modules
 cd ..
 cd Storage-WRIO-App && rm -fR node_modules
 cd ..
-cd Titter-WRIO-App && rm -fR node_modules
+cd Pinger-WRIO-App && rm -fR node_modules
 cd ..
 cd WRIO-InternetOS && rm -fR node_modules
 cd ..
