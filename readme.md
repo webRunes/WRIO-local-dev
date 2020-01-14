@@ -41,7 +41,7 @@ Please add following entries to your hosts file
 ```
 127.0.0.1 webgold_d.wrioos.com
 127.0.0.1 core_d.wrioos.com
-127.0.0.1 titter_d.wrioos.com
+127.0.0.1 pinger_d.wrioos.com
 ```
 
 Now each time you start frontend server, run
