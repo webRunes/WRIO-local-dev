@@ -26,7 +26,7 @@ git clone https://github.com/webRunes/Storage-WRIO-App
 git clone https://github.com/webRunes/webGold-WRIO-App
 git clone https://github.com/webRunes/Chess-WRIO-Game
 git clone https://github.com/webRunes/Plus-WRIO-App
-git clone https://github.com/webRunes/Titter-WRIO-App
+git clone https://github.com/webRunes/Pinger-WRIO-App
 ```
 
 install yarn, if you don't have one
